@@ -1,23 +1,9 @@
 let nombre = prompt ("¿Como es tu nombre?");
-let sexualidad =  prompt ("Ingrese su Sexo: M (Masculino), F (Femenino) o NB (No binario)");
+let sexualidad =  prompt ("Ingrese su Sexo: M (Masculino), F (Femenino) o NB (No binario)").toLocaleLowerCase;
 
-/* while (sexualidad === "M", "m", "F", "f", "NB", "Nb", "nb") {
-switch (sexualidad) {
-    case ("M", "m"):
-        alert ("Bienvenido " + nombre + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
-        break;
-    case ("F", "m"):
-        alert ("Bienvenida " + nombre + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
-        break;
-    case ("NB", "Nb", "nb") :
-        alert ("Bienvenide " + nombre + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
-        break;
-}
-} */
-
-if (sexualidad === "M") {
+if (sexualidad == "m") {
     alert ("Bienvenido " + nombre + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
-} else if (sexualidad === "F") {
+} else if (sexualidad == "f") {
     alert ("Bienvenida " + nombre + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
 } else {
     alert ("Bienvenide " + nombre + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
@@ -30,28 +16,39 @@ const precioDosPersonas = 9000;
 const preciosTresPersonas = 12000;
 const precioGrupal = 3500;
 
-const dosPersonas = 2;
-const tresPersonas = 3;
-const grupal = 4; 
-
-
-if (numero === 1) {
-    alert ("El entrenamiento personalizado cuesta: " + precioPersonalizado + " al mes, entrenando dos veces a la semana.");
-} else if (numero === 2) {
-    alert ("El entrenamiento en pareja cuesta: " + (precioDosPersonas / dosPersonas) + " por persona, al mes, entrenando dos veces a la semana.");
-} else if (numero === 3) {
-    alert ("El entrenamiento de a tres cuesta: " + (preciosTresPersonas / tresPersonas) + " por persona, al mes, entrenando dos veces a la semana.");
-} else {
-    alert ("El entrenamiento grupal cuesta: " + (precioGrupal) + " por persona, al mes, entrenando dos veces a la semana.");
+function cotización(numero) {
+    if (numero == 1) {
+        return (alert ("El entrenamiento personalizado cuesta: " + precioPersonalizado + " al mes, entrenando dos veces a la semana."));
+    } else if (numero == 2) {
+        return (alert ("El entrenamiento en pareja cuesta: " + (precioDosPersonas / numero) + " por persona, al mes, entrenando dos veces a la semana."));
+    } else if (numero == 3) {
+        return (alert ("El entrenamiento de a tres cuesta: " + (preciosTresPersonas / numero) + " por persona, al mes, entrenando dos veces a la semana."));
+    } else {
+        return (alert ("El entrenamiento grupal cuesta: " + (precioGrupal) + " por persona, al mes, entrenando dos veces a la semana."));
+    }
 }
+cotización (numero);
 
-let consulta = prompt ("¿Le interesa otra cotización? (SI / NO)")
+let consulta = prompt ("¿Le interesa otra cotización? (SI / NO)").toLocaleLowerCase ();
 
-if (consulta === "Si", "SI", "si") {
-    let numero = parseInt (prompt ("ingrese cantidad de alumnos"));
-} else {
-    alert ("Muchas gracias por visitarnos, estamos a tu disposición");
+function dudas (consulta) {
+    if (consulta == "si") {
+        numero = parseInt (prompt ("ingrese cantidad de alumnos"));
+        cotización (numero);
+        consulta = prompt ("¿Le interesa otra cotización? (SI / NO)")
+        dudas (consulta);
+    } else {
+        let reconsulta = prompt ("¿Alguna otra consulta? (SI / NO)").toLowerCase();
+
+        if (reconsulta == "si") {
+            let  = parseInt (prompt ("Ingrese su consulta y nos contactaremos a la brevedad."));
+            alert ("Muchas gracias por visitarnos, estamos a tu disposición");
+        } else {
+            alert ("Muchas gracias por visitarnos, estamos a tu disposición");
+        }
+    } 
 }
+dudas (consulta);
 
 
 
