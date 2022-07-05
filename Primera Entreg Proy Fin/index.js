@@ -1,37 +1,23 @@
-// Ingreso consultas
+/* // Ingreso consultas
 let Usuario = prompt ("Ingrese nombre de usuario");
 
 while (!Usuario) { 
     Usuario = prompt ("No ingreso un nombre valido, intente nuevamente")
 }
 
+let sexualidad =  prompt ("Ingrese su Sexo: M (Masculino), F (Femenino) o NB (No binario)").toLowerCase();
 
-do {
-    sexualidad =  prompt ("Ingrese su Sexo: M (Masculino), F (Femenino) o NB (No binario)").toLowerCase();
+while (sexualidad !== "m" && sexualidad !== "f" && sexualidad !== "nb") {
+    sexualidad = prompt ("No ingreso una letra válida, intente nuevamente: ")
+}
 
-} while (sexualidad !== "m" && sexualidad !== "f" && sexualidad !== "nb") {
-    if (sexualidad == "m") {
-        alert ("Bienvenido " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
-    } else if (sexualidad == "f") {
-        alert ("Bienvenida " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
-    } else if (sexualidad == "nb") {
-        alert ("Bienvenide " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
-    } else {
-        alert ("No ingreso una opcion válida, intente nuevamente");
-    }
-}  
-
-/* function sexualidad (Usuario) {
-    if (sexualidad == "m") {
-        alert ("Bienvenido " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
-    } else if (sexualidad == "f") {
-        alert ("Bienvenida " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
-    } else if (sexualidad == "nb") {
-        alert ("Bienvenide " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
-    } else {
-        alert ("No ingreso una opcion válida, intente nuevamente");
-    }
-} */
+if (sexualidad == "m") {
+    alert ("Bienvenido " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
+} else if (sexualidad == "f") {
+    alert ("Bienvenida " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
+} else {
+    alert ("Bienvenide " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
+}
 
 
 class Clientes {
@@ -43,54 +29,84 @@ class Clientes {
     }
 }
 
+let numero = parseInt (prompt ("ingrese cantidad de alumnos"));
+
 function registroClientes() {
     let cliente = [] ;
-    for (let i = 0; i < 100 ; i++) {
-        let nombre = promp ("Ingrese su nombre");
+    for (let i = 0; i < numero ; i++) {
+        let nombre = prompt ("Ingrese su nombre");
         let apellido = prompt ("Ahora su apellido");
         let edad = parseInt (prompt("Tu edad"));
         let telefono = parseInt (prompt("Un teléfono por favor"));
-        let clientes = (new Clientes (nombre, apellido, edad, telefono));
-        cliente.push(clientes);
+    
+        let datos = (new Clientes (nombre, apellido, edad, telefono));
+        cliente.push(datos);
     }
-    return cliente;
 }
+registroClientes ();
 
-function registroClientes(cliente) {
+function registro() {
     for (const Clientes of cliente) {
         console.log(Clientes);
-        alert (`Muchas gracias por elegirnos ${clientes.nombre}`)
     }
-    
 }
+registro(Clientes);
 
 function guardar() {
-    let cliente = registroClientes ();
-    registroClientes (cliente);
+    let cliente = registro ();
+    registro (cliente);
     
-}
-
-let numero = parseInt (prompt ("ingrese cantidad de alumnos"));
-
-const precios = [
-    Personalizado = 5000,
-    DosPersonas = 9000,
-    TresPersonas = 12000,
-    Grupal = 3500,
-]
-
-function cotización(numero) {
-    if (numero == 1) {
-        return (alert ("El entrenamiento personalizado cuesta: " + Personalizado + " al mes, entrenando dos veces a la semana."));
-    } else if (numero == 2) {
-        return (alert ("El entrenamiento en pareja cuesta: " + (DosPersonas / numero) + " por persona, al mes, entrenando dos veces a la semana."));
-    } else if (numero == 3) {
-        return (alert ("El entrenamiento de a tres cuesta: " + (TresPersonas / numero) + " por persona, al mes, entrenando dos veces a la semana."));
-    } else {
-        return (alert ("El entrenamiento grupal cuesta: " + (Grupal) + " por persona, al mes, entrenando dos veces a la semana."));
+} 
+guardar ();
+ */
+/* class tipoPrecio {
+    constructor(tipo, precio) {
+        this.tipo = tipo;
+        this.precio = precio;
     }
 }
-cotización (numero);
+
+const precios = [];
+precios.push (new tipoPrecio('personalizado', 5000));
+precios.push (new tipoPrecio('dos personas', 4500));
+precios.push (new tipoPrecio('tres personas', 4000));
+precios.push (new tipoPrecio('grupal', 3500));
+
+for (const tipoPrecio of precios) {
+    console.log(tipoPrecio);
+} */
+
+const tipoPrecio = [
+    {tipo: "personalizado", precio: 5000},
+    {tipo: "dos personas", precio: 4500},
+    {tipo: "tres personas", precio: 4000},
+    {tipo: "grupal", precio: 3500},
+]
+
+let clase = prompt ("¿Su entrenamiento sera? Personalizado, Dos personas, Tres personas o grupal (4 o + personas)").toLowerCase ();
+
+while (clase !== "personalizado" && clase !== "dos personas" && clase !== "tres personas" && clase !== "grupal") {
+    clase = prompt ("No ingreso una letra válida, intente nuevamente: ")
+}
+
+function cotización(clase) {
+    if (clase == "personalizado") {
+        let encontrar = tipoPrecio.find (elemento => elemento.tipo === clase);
+        return (alert (`El entrenamiento ${clase} cuesta:  ${tipoPrecio.precio}  al mes, entrenando dos veces a la semana.`));
+    } else if (clase == "dos personas") {
+        let tipoPrecio = tipoPrecio.find (elemento => elemento.tipo === clase);
+        return (alert (`El entrenamiento para ${clase} cuesta ${tipoPrecio.precio} por persona, al mes, entrenando dos veces a la semana.`));
+    } else if (clase == "tres personas") {
+        let tipoPrecio = tipoPrecio.find (elemento => elemento.tipo === clase);
+        return (alert (`El entrenamiento para ${clase} cuesta ${tipoPrecio.precio} por persona, al mes, entrenando dos veces a la semana.`));
+    } else if (clase == "grupal") {
+        let tipoPrecio = tipoPrecio.find (elemento => elemento.tipo === clase);
+        return (alert (`El entrenamiento ${clase} cuesta ${tipoPrecio.precio} por persona, al mes, entrenando dos veces a la semana.`));
+    } else {
+        clase = prompt ("Ingrese un texto valido");
+    }
+}
+cotización (clase);
 
 let consulta = prompt ("¿Le interesa otra cotización? (SI / NO)").toLowerCase();
 

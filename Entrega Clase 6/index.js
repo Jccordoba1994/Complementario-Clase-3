@@ -1,4 +1,4 @@
-// Ingreso consultas
+ // Ingreso consultas
 let Usuario = prompt ("Ingrese nombre de usuario");
 
 while (!Usuario) { 
@@ -38,25 +38,26 @@ function registroClientes() {
         let apellido = prompt ("Ahora su apellido");
         let edad = parseInt (prompt("Tu edad"));
         let telefono = parseInt (prompt("Un teléfono por favor"));
-
+    
         let datos = (new Clientes (nombre, apellido, edad, telefono));
         cliente.push(datos);
     }
 }
 registroClientes ();
-alert (`Muchas gracias por elegirnos ${Clientes.nombre}`)
 
-function registro(cliente) {
+function registro() {
     for (const Clientes of cliente) {
         console.log(Clientes);
     }
 }
+registro(Clientes);
 
 function guardar() {
     let cliente = registro ();
     registro (cliente);
     
-}
+} 
+guardar ();
 
 class tipoPrecio {
     constructor(tipo, precio) {
@@ -65,28 +66,30 @@ class tipoPrecio {
     }
 }
 
+let clase = parseInt ("¿Cuantos alumnos tendra su clase?")
+
 const precios = [];
 precios.push (new tipoPrecio('Personalizado', 5000));
-precios.push (new tipoPrecio('Dos personas', 9000));
-precios.push (new tipoPrecio('Tres personas', 12000));
+precios.push (new tipoPrecio('Dos personas', 4500));
+precios.push (new tipoPrecio('Tres personas', 4000));
 precios.push (new tipoPrecio('Grupal', 3500));
 
 for (const tipoPrecio of precios) {
     console.log(tipoPrecio);
 }
 
-function cotización(numero) {
-    if (numero == 1) {
+function cotización(clase) {
+    if (clase == 1) {
         return (alert ("El entrenamiento personalizado cuesta: " + Personalizado + " al mes, entrenando dos veces a la semana."));
-    } else if (numero == 2) {
-        return (alert ("El entrenamiento en pareja cuesta: " + (DosPersonas / numero) + " por persona, al mes, entrenando dos veces a la semana."));
-    } else if (numero == 3) {
-        return (alert ("El entrenamiento de a tres cuesta: " + (TresPersonas / numero) + " por persona, al mes, entrenando dos veces a la semana."));
+    } else if (clase == 2) {
+        return (alert ("El entrenamiento en pareja cuesta: " + DosPersonas + " por persona, al mes, entrenando dos veces a la semana."));
+    } else if (clase == 3) {
+        return (alert ("El entrenamiento de a tres cuesta: " + TresPersonas + " por persona, al mes, entrenando dos veces a la semana."));
     } else {
-        return (alert ("El entrenamiento grupal cuesta: " + (Grupal) + " por persona, al mes, entrenando dos veces a la semana."));
+        return (alert ("El entrenamiento grupal cuesta: " + Grupal + " por persona, al mes, entrenando dos veces a la semana."));
     }
 }
-cotización (numero);
+cotización (clase);
 
 let consulta = prompt ("¿Le interesa otra cotización? (SI / NO)").toLowerCase();
 
