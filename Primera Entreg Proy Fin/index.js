@@ -1,4 +1,4 @@
-/* // Ingreso consultas
+// Ingreso consultas
 let Usuario = prompt ("Ingrese nombre de usuario");
 
 while (!Usuario) { 
@@ -58,7 +58,7 @@ function guardar() {
     
 } 
 guardar ();
- */
+
 /* class tipoPrecio {
     constructor(tipo, precio) {
         this.tipo = tipo;
@@ -91,7 +91,7 @@ while (clase !== "personalizado" && clase !== "dos personas" && clase !== "tres 
 
 function cotización(clase) {
     if (clase == "personalizado") {
-        let encontrar = tipoPrecio.find (elemento => elemento.tipo === clase);
+        let  = tipoPrecio.find (elemento => elemento.tipo === clase);
         return (alert (`El entrenamiento ${clase} cuesta:  ${tipoPrecio.precio}  al mes, entrenando dos veces a la semana.`));
     } else if (clase == "dos personas") {
         let tipoPrecio = tipoPrecio.find (elemento => elemento.tipo === clase);
