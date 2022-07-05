@@ -5,19 +5,33 @@ while (!Usuario) {
     Usuario = prompt ("No ingreso un nombre valido, intente nuevamente")
 }
 
-let sexualidad =  prompt ("Ingrese su Sexo: M (Masculino), F (Femenino) o NB (No binario)").toLowerCase();
 
-while (sexualidad !== "m" && sexualidad !== "f" && sexualidad !== "nb") {
-    sexualidad = prompt ("No ingreso una letra válida, intente nuevamente: ")
-}
+do {
+    sexualidad =  prompt ("Ingrese su Sexo: M (Masculino), F (Femenino) o NB (No binario)").toLowerCase();
 
-if (sexualidad == "m") {
-    alert ("Bienvenido " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
-} else if (sexualidad == "f") {
-    alert ("Bienvenida " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
-} else {
-    alert ("Bienvenide " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
-}
+} while (sexualidad !== "m" && sexualidad !== "f" && sexualidad !== "nb") {
+    if (sexualidad == "m") {
+        alert ("Bienvenido " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
+    } else if (sexualidad == "f") {
+        alert ("Bienvenida " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
+    } else if (sexualidad == "nb") {
+        alert ("Bienvenide " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
+    } else {
+        alert ("No ingreso una opcion válida, intente nuevamente");
+    }
+}  
+
+/* function sexualidad (Usuario) {
+    if (sexualidad == "m") {
+        alert ("Bienvenido " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
+    } else if (sexualidad == "f") {
+        alert ("Bienvenida " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
+    } else if (sexualidad == "nb") {
+        alert ("Bienvenide " + Usuario + " a AT sports Training, acontinuación cotizaremos tu entrenamiento");
+    } else {
+        alert ("No ingreso una opcion válida, intente nuevamente");
+    }
+} */
 
 
 class Clientes {
@@ -29,51 +43,41 @@ class Clientes {
     }
 }
 
-let numero = parseInt (prompt ("ingrese cantidad de alumnos"));
-
 function registroClientes() {
     let cliente = [] ;
-    for (let i = 0; i < numero ; i++) {
-        let nombre = prompt ("Ingrese su nombre");
+    for (let i = 0; i < 100 ; i++) {
+        let nombre = promp ("Ingrese su nombre");
         let apellido = prompt ("Ahora su apellido");
         let edad = parseInt (prompt("Tu edad"));
         let telefono = parseInt (prompt("Un teléfono por favor"));
-
-        let datos = (new Clientes (nombre, apellido, edad, telefono));
-        cliente.push(datos);
+        let clientes = (new Clientes (nombre, apellido, edad, telefono));
+        cliente.push(clientes);
     }
+    return cliente;
 }
-registroClientes ();
-alert (`Muchas gracias por elegirnos ${Clientes.nombre}`)
 
-function registro(cliente) {
+function registroClientes(cliente) {
     for (const Clientes of cliente) {
         console.log(Clientes);
+        alert (`Muchas gracias por elegirnos ${clientes.nombre}`)
     }
-}
-
-function guardar() {
-    let cliente = registro ();
-    registro (cliente);
     
 }
 
-class tipoPrecio {
-    constructor(tipo, precio) {
-        this.tipo = tipo;
-        this.precio = precio;
-    }
+function guardar() {
+    let cliente = registroClientes ();
+    registroClientes (cliente);
+    
 }
 
-const precios = [];
-precios.push (new tipoPrecio('Personalizado', 5000));
-precios.push (new tipoPrecio('Dos personas', 9000));
-precios.push (new tipoPrecio('Tres personas', 12000));
-precios.push (new tipoPrecio('Grupal', 3500));
+let numero = parseInt (prompt ("ingrese cantidad de alumnos"));
 
-for (const tipoPrecio of precios) {
-    console.log(tipoPrecio);
-}
+const precios = [
+    Personalizado = 5000,
+    DosPersonas = 9000,
+    TresPersonas = 12000,
+    Grupal = 3500,
+]
 
 function cotización(numero) {
     if (numero == 1) {
