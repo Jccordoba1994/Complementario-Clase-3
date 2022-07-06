@@ -72,11 +72,11 @@ while (clase !== "personalizado" && clase !== "dos personas" && clase !== "tres 
     clase = prompt ("No ingreso un texto valido, intente nuevamente, Personalizado, Dos personas, Tres personas o grupal (4 o + personas): ")
 }
 
-function cotización(clase) {
+function cotizacion(clase) {
     let busqueda = tipoPrecio.find (elemento => elemento.tipo === clase);
     alert (`El entrenamiento ${clase} cuesta: ${busqueda.precio}  al mes, entrenando dos veces a la semana.`);
 }
-cotización (clase);
+cotizacion (clase);
 
 let consulta = prompt ("¿Le interesa otra cotización? (SI / NO)").toLowerCase();
 
@@ -88,7 +88,7 @@ function dudas (consulta) {
             clase = prompt ("No ingreso un texto valido, intente nuevamente, Personalizado, Dos personas, Tres personas o grupal (4 o + personas): ")
         }
         
-        cotización (clase);
+        cotizacion (clase);
         consulta = prompt ("¿Le interesa otra cotización? (SI / NO)")
         dudas (consulta);
     } else {
