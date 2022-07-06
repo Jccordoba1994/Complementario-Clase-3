@@ -31,8 +31,9 @@ class Clientes {
 
 let numero = parseInt (prompt ("ingrese cantidad de alumnos"));
 
+let cliente = [] ;
+
 function registroClientes() {
-    let cliente = [] ;
     for (let i = 0; i < numero ; i++) {
         let nombre = prompt ("Ingrese su nombre");
         let apellido = prompt ("Ahora su apellido");

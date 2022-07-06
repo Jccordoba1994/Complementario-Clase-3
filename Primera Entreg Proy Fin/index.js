@@ -31,8 +31,9 @@ class Clientes {
 
 let numero = parseInt (prompt ("ingrese cantidad de alumnos"));
 
+let cliente = [] ;
+
 function registroClientes() {
-    let cliente = [] ;
     for (let i = 0; i < numero ; i++) {
         let nombre = prompt ("Ingrese su nombre");
         let apellido = prompt ("Ahora su apellido");
@@ -43,7 +44,7 @@ function registroClientes() {
         cliente.push(datos);
     }
 }
-registroClientes ();
+registroClientes (cliente);
 
 function registro() {
     for (const Clientes of cliente) {
@@ -55,26 +56,8 @@ registro(Clientes);
 function guardar() {
     let cliente = registro ();
     registro (cliente);
-    
 } 
 guardar ();
-
-/* class tipoPrecio {
-    constructor(tipo, precio) {
-        this.tipo = tipo;
-        this.precio = precio;
-    }
-}
-
-const precios = [];
-precios.push (new tipoPrecio('personalizado', 5000));
-precios.push (new tipoPrecio('dos personas', 4500));
-precios.push (new tipoPrecio('tres personas', 4000));
-precios.push (new tipoPrecio('grupal', 3500));
-
-for (const tipoPrecio of precios) {
-    console.log(tipoPrecio);
-} */
 
 const tipoPrecio = [
     {tipo: "personalizado", precio: 5000},
@@ -86,25 +69,12 @@ const tipoPrecio = [
 let clase = prompt ("¿Su entrenamiento sera? Personalizado, Dos personas, Tres personas o grupal (4 o + personas)").toLowerCase ();
 
 while (clase !== "personalizado" && clase !== "dos personas" && clase !== "tres personas" && clase !== "grupal") {
-    clase = prompt ("No ingreso una letra válida, intente nuevamente: ")
+    clase = prompt ("No ingreso un texto valido, intente nuevamente, Personalizado, Dos personas, Tres personas o grupal (4 o + personas): ")
 }
 
 function cotización(clase) {
-    if (clase == "personalizado") {
-        let tipoPrecio = tipoPrecio.find (elemento => elemento.tipo === clase);
-        return (alert (`El entrenamiento ${clase} cuesta:  ${tipoPrecio.precio}  al mes, entrenando dos veces a la semana.`));
-    } else if (clase == "dos personas") {
-        let tipoPrecio = tipoPrecio.find (elemento => elemento.tipo === clase);
-        return (alert (`El entrenamiento para ${clase} cuesta ${tipoPrecio.precio} por persona, al mes, entrenando dos veces a la semana.`));
-    } else if (clase == "tres personas") {
-        let tipoPrecio = tipoPrecio.find (elemento => elemento.tipo === clase);
-        return (alert (`El entrenamiento para ${clase} cuesta ${tipoPrecio.precio} por persona, al mes, entrenando dos veces a la semana.`));
-    } else if (clase == "grupal") {
-        let tipoPrecio = tipoPrecio.find (elemento => elemento.tipo === clase);
-        return (alert (`El entrenamiento ${clase} cuesta ${tipoPrecio.precio} por persona, al mes, entrenando dos veces a la semana.`));
-    } else {
-        clase = prompt ("Ingrese un texto valido");
-    }
+    let busqueda = tipoPrecio.find (elemento => elemento.tipo === clase);
+    alert (`El entrenamiento ${clase} cuesta: ${busqueda.precio}  al mes, entrenando dos veces a la semana.`);
 }
 cotización (clase);
 
@@ -112,8 +82,13 @@ let consulta = prompt ("¿Le interesa otra cotización? (SI / NO)").toLowerCase(
 
 function dudas (consulta) {
     if (consulta == "si") {
-        numero = parseInt (prompt ("ingrese cantidad de alumnos"));
-        cotización (numero);
+        clase = prompt ("¿Su entrenamiento sera? Personalizado, Dos personas, Tres personas o grupal (4 o + personas)").toLowerCase ();
+        
+        while (clase !== "personalizado" && clase !== "dos personas" && clase !== "tres personas" && clase !== "grupal") {
+            clase = prompt ("No ingreso un texto valido, intente nuevamente, Personalizado, Dos personas, Tres personas o grupal (4 o + personas): ")
+        }
+        
+        cotización (clase);
         consulta = prompt ("¿Le interesa otra cotización? (SI / NO)")
         dudas (consulta);
     } else {
@@ -121,9 +96,9 @@ function dudas (consulta) {
 
         if (reconsulta == "si") {
             let  = parseInt (prompt ("Ingrese su consulta"));
-            alert ("Muchas gracias por visitarnos, estamos a tu disposición");
+            alert ("Muchas gracias por visitarnos, Familia AT Sports");
         } else {
-            alert ("Muchas gracias por visitarnos, estamos a tu disposición");
+            alert ("Muchas gracias por visitarnos, Familia AT Sports");
         }
     } 
 }
