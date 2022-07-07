@@ -59,6 +59,31 @@ function guardar() {
 } 
 guardar ();
 
+let productos = [
+    {id: 1, nombre: "personzalido", precio: 5000},
+    {id: 2, nombre: "dos personas", precio: 4500},
+    {id: 3, nombre: "tres personas", precio: 4000},
+    {id: 4, nombre: "gruapl", precio: 3500},
+];
+
+let container = document.getElementById("container");
+let clase = prompt ("¿Su entrenamiento sera? Personalizado, Dos personas, Tres personas o grupal (4 o + personas)").toLowerCase ();
+
+while (clase !== "personalizado" && clase !== "dos personas" && clase !== "tres personas" && clase !== "grupal").toLowerCase() {
+    clase = prompt ("No ingreso un texto valido, intente nuevamente, Personalizado, Dos personas, Tres personas o grupal (4 o + personas): ")
+}
+
+let filtrados = productos.filter(elemento => elemento.precio > clase);
+
+for(const producto of filtrados){
+    let item = document.createElement("div");
+    item.innerHTML =    `<h2>Id: ${producto.id}</h2> 
+                        <p>Producto: ${producto.nombre}</p>
+                        <b>Precio: ${producto.precio}</b>`;
+}
+
+    container.append(item);
+/* 
 const tipoPrecio = [
     {tipo: "personalizado", precio: 5000},
     {tipo: "dos personas", precio: 4500},
@@ -76,7 +101,7 @@ function cotizacion(clase) {
     let busqueda = tipoPrecio.find (elemento => elemento.tipo === clase);
     alert (`El entrenamiento ${clase} cuesta: ${busqueda.precio}  al mes, entrenando dos veces a la semana.`);
 }
-cotizacion (clase);
+cotizacion (clase); */
 
 let consulta = prompt ("¿Le interesa otra cotización? (SI / NO)").toLowerCase();
 
