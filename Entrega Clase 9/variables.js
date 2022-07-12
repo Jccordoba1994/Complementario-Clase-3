@@ -14,6 +14,15 @@ function validacion(e) {
     console.log(input1, input2, input3, input4);
 }
 
+let input = document.getElementById ("comienzo");
+
+input.addEventListener("keydown", (e) => {
+    if(e.key === "Enter"){
+        alert = ("Gracias por contactarte, a continuación cotizaremos tu actividad");
+    }
+})
+
+
 let productos = [
     {id: 1, nombre: "personzalido", precio: 5000},
     {id: 2, nombre: "dos personas", precio: 4500},
