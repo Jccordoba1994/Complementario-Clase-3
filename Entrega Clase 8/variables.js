@@ -69,20 +69,22 @@ let productos = [
 let container = document.getElementById("container");
 let clase = prompt ("¿Su entrenamiento sera? Personalizado, Dos personas, Tres personas o grupal (4 o + personas)").toLowerCase ();
 
-while (clase !== "personalizado" && clase !== "dos personas" && clase !== "tres personas" && clase !== "grupal").toLowerCase() {
-    clase = prompt ("No ingreso un texto valido, intente nuevamente, Personalizado, Dos personas, Tres personas o grupal (4 o + personas): ")
+while (clase !== "personalizado" && clase !== "dos personas" && clase !== "tres personas" && clase !== "grupal"){
+    clase = prompt ("No ingreso un texto valido, intente nuevamente, Personalizado, Dos personas, Tres personas o grupal (4 o + personas): ").toLowerCase();
 }
 
-let filtrados = productos.filter(elemento => elemento.precio > clase);
+let filtrados = productos.filter(elemento => elemento.nombre == clase);
 
 for(const producto of filtrados){
     let item = document.createElement("div");
     item.innerHTML =    `<h2>Id: ${producto.id}</h2> 
                         <p>Producto: ${producto.nombre}</p>
                         <b>Precio: ${producto.precio}</b>`;
-}
 
-    container.append(item);
+container.append(item);
+                    }
+
+    
 /* 
 const tipoPrecio = [
     {tipo: "personalizado", precio: 5000},
@@ -112,8 +114,8 @@ function dudas (consulta) {
         while (clase !== "personalizado" && clase !== "dos personas" && clase !== "tres personas" && clase !== "grupal") {
             clase = prompt ("No ingreso un texto valido, intente nuevamente, Personalizado, Dos personas, Tres personas o grupal (4 o + personas): ")
         }
-        
-        cotizacion (clase);
+        let filtrados = productos.filter(elemento => elemento.nombre == clase);
+        // cotizacion (clase);
         consulta = prompt ("¿Le interesa otra cotización? (SI / NO)")
         dudas (consulta);
     } else {

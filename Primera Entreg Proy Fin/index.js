@@ -64,11 +64,11 @@ const tipoPrecio = [
     {tipo: "dos personas", precio: 4500},
     {tipo: "tres personas", precio: 4000},
     {tipo: "grupal", precio: 3500},
-]
+];
 
 let clase = prompt ("¿Su entrenamiento sera? Personalizado, Dos personas, Tres personas o grupal (4 o + personas)").toLowerCase ();
 
-while (clase !== "personalizado" && clase !== "dos personas" && clase !== "tres personas" && clase !== "grupal").tolowerCase () {
+while (clase !== "personalizado" && clase !== "dos personas" && clase !== "tres personas" && clase !== "grupal").toLowerCase () {
     clase = prompt ("No ingreso un texto valido, intente nuevamente, Personalizado, Dos personas, Tres personas o grupal (4 o + personas): ")
 }
 
